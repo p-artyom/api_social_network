@@ -15,14 +15,9 @@ if os.path.exists(DOTENV_PATH):
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
-DEBUG = True
+DEBUG = os.getenv('DEBUG') == 'True'
 
-ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    '[::1]',
-    'testserver',
-]
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(' ')
 
 # fmt: off
 INSTALLED_APPS = [
